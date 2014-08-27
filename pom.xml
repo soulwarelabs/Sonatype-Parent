@@ -6,7 +6,7 @@
 
     File:     pom.xml
     Folder:   /
-    Revision: 1.01, 24 August 2014
+    Revision: 1.02, 27 August 2014
     Created:  24 August 2014
     Authors:  Ilya Gubarev
 
@@ -40,7 +40,7 @@
 
     <groupId>com.soulwarelabs.sonatype</groupId>
     <artifactId>sonatype-parent</artifactId>
-    <version>1.0.0-alpha</version>
+    <version>1.0.0-beta</version>
     <packaging>pom</packaging>
 
     <name>Sonatype-Parent</name>
@@ -78,7 +78,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <versions.libs.junit>4.11</versions.libs.junit>
         <versions.plugins.buildhelper>1.8</versions.plugins.buildhelper>
+        <versions.plugins.clean>2.5</versions.plugins.clean>
         <versions.plugins.compiler>3.1</versions.plugins.compiler>
         <versions.plugins.ear>2.9.1</versions.plugins.ear>
         <versions.plugins.ejb>2.3</versions.plugins.ejb>
@@ -88,9 +90,34 @@
         <versions.plugins.war>2.4</versions.plugins.war>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${versions.libs.junit}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${versions.plugins.clean}</version>
+                    <executions>
+                        <execution>
+                            <id>auto-clean</id>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>clean</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -193,6 +220,44 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>build-release</id>
+            <activation>
+                <property>
+                    <name>option-build-release</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <compilerArgs>
+                                <arg>-Xlint</arg>
+                            </compilerArgs>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
