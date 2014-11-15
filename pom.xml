@@ -6,7 +6,7 @@
 
     File:     pom.xml
     Folder:   /
-    Revision: 1.03, 30 August 2014
+    Revision: 1.04, 15 November 2014
     Created:  24 August 2014
     Authors:  Ilya Gubarev
 
@@ -40,7 +40,7 @@
 
     <groupId>com.soulwarelabs.sonatype</groupId>
     <artifactId>sonatype-parent</artifactId>
-    <version>1.0.0-beta1</version>
+    <version>1.0.0-beta2</version>
     <packaging>pom</packaging>
 
     <name>Sonatype-Parent</name>
@@ -79,15 +79,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <versions.libs.junit>4.11</versions.libs.junit>
-        <versions.plugins.buildhelper>1.8</versions.plugins.buildhelper>
-        <versions.plugins.clean>2.5</versions.plugins.clean>
-        <versions.plugins.compiler>3.1</versions.plugins.compiler>
+        <versions.plugins.buildhelper>1.9.1</versions.plugins.buildhelper>
+        <versions.plugins.clean>2.6.1</versions.plugins.clean>
+        <versions.plugins.compiler>3.2</versions.plugins.compiler>
         <versions.plugins.ear>2.9.1</versions.plugins.ear>
-        <versions.plugins.ejb>2.3</versions.plugins.ejb>
+        <versions.plugins.ejb>2.4</versions.plugins.ejb>
         <versions.plugins.gpg>1.5</versions.plugins.gpg>
-        <versions.plugins.javadoc>2.9.1</versions.plugins.javadoc>
-        <versions.plugins.source>2.3</versions.plugins.source>
-        <versions.plugins.war>2.4</versions.plugins.war>
+        <versions.plugins.javadoc>2.10.1</versions.plugins.javadoc>
+        <versions.plugins.source>2.4</versions.plugins.source>
+        <versions.plugins.war>2.5</versions.plugins.war>
     </properties>
 
     <dependencyManagement>
