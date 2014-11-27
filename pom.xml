@@ -6,7 +6,7 @@
 
     File:     pom.xml
     Folder:   /
-    Revision: 1.04, 15 November 2014
+    Revision: 1.05, 27 November 2014
     Created:  24 August 2014
     Authors:  Ilya Gubarev
 
@@ -35,12 +35,12 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <version>9</version>
     </parent>
 
     <groupId>com.soulwarelabs.sonatype</groupId>
     <artifactId>sonatype-parent</artifactId>
-    <version>1.0.0-beta2</version>
+    <version>1.0.0-beta3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Sonatype-Parent</name>
